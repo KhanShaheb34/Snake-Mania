@@ -16,14 +16,13 @@ int main()
 {
     /*
     ~~~~~~~~~ Game States ~~~~~~~~~
-    -1= Intro
     0 = Main menu
     1 = GameLoop
     2 = Game Over
     3 = Help
     4 = HighScore
     */
-    int gameState=-1;
+    int gameState=0;
     bool startNow=true, startNow2=false, menuStart=true, overStart=true, music=true, bonusStart=true, bonusBool=false, increaseLevel=false;
     int fps=10, foodX, foodY, score=0, snakeSize=3, foodCount=0, highscore=0, bonus=600, bonusTimer;
     float keyPresstimer, delay=.1, menuTimer=0.0f, extraTimer=0.0f;
@@ -89,7 +88,6 @@ int main()
     TbeatBG.loadFromFile    ("images/menu/overBeatBG.png");
     ThelpBG.loadFromFile    ("images/help.png");
     ThighBG.loadFromFile    ("images/highBG.png");
-    Tintro.loadFromFile     ("images/intro.png");
 
     gothic.loadFromFile     ("fonts/gothic.ttf");
     grobold.loadFromFile    ("fonts/grobold.ttf");
@@ -112,7 +110,7 @@ int main()
 
 
     Sprite  head(TheadRight), tail(TtailRight), body[500], food(Tfood), menuBG(TmenuBG), snakeTree(TsnakeTree), snakeCute(TsnakeCute),
-            snakeBig(TsnakeBig), menuTitle(TmenuTitle), overBG(ToverBG), helpBG(ThelpBG), highBG(ThighBG), intro(Tintro);
+            snakeBig(TsnakeBig), menuTitle(TmenuTitle), overBG(ToverBG), helpBG(ThelpBG), highBG(ThighBG);
     Sprite bgspr(Tbg);
 
     Sound eat(SBeat), dieS(SBdie), bonusAppear(SBbonusAppear), bonusTime(SBbonusTime), selectS(SBselect), selectedS(SBselected);
@@ -130,14 +128,6 @@ int main()
         {
             if(ev.type==Event::Closed)
                 win.close();
-        }
-
-        /// INTRO
-
-        if(gameState==-1){
-            win.clear();
-            win.draw(intro);
-            if(Keyboard::isKeyPressed(Keyboard::Enter)) gameState=0, menuClock.restart();
         }
 
         /// MENU
