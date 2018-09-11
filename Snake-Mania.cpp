@@ -1,4 +1,3 @@
-
 #include <SFML/Graphics.hpp>
 #include <bits/stdc++.h>
 #include <SFML/Audio.hpp>
@@ -39,8 +38,6 @@ int main()
     SoundBuffer SBeat, SBdie, SBselect, SBselected, SBbonusAppear, SBbonusTime;
     Color selected(85, 104, 42, 200), notSelected(121, 130, 59, 100), beat(200, 20, 20);
     srand(time(NULL));
-
-
 
     RenderWindow win(VideoMode(960, 600), "Snake Mania");
     win.setFramerateLimit(20);
@@ -103,11 +100,9 @@ int main()
     gameMusic.openFromFile  ("audios/game.ogg");
     overMusic.openFromFile  ("audios/over.ogg");
 
-
     gameMusic.setVolume(45);
     menuMusic.setVolume(60);
     overMusic.setVolume(60);
-
 
     Sprite  head(TheadRight), tail(TtailRight), body[500], food(Tfood), menuBG(TmenuBG), snakeTree(TsnakeTree), snakeCute(TsnakeCute),
             snakeBig(TsnakeBig), menuTitle(TmenuTitle), overBG(ToverBG), helpBG(ThelpBG), highBG(ThighBG);
@@ -310,7 +305,6 @@ int main()
             if(Keyboard::isKeyPressed(Keyboard::Enter) && extraTimer>.2) gameState=0, extraClock.restart();
             if(Keyboard::isKeyPressed(Keyboard::Escape) || Keyboard::isKeyPressed(Keyboard::BackSpace)) gameState=0;
         }
-
 
         /// GAME LOOP
 
