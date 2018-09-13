@@ -36,7 +36,7 @@ int main()
     Clock keyPressclock, menuClock, extraClock, bonusClock;
     Music menuMusic, gameMusic, overMusic;
     SoundBuffer SBeat, SBdie, SBselect, SBselected, SBbonusAppear, SBbonusTime;
-    Color selected(85, 104, 42, 200), notSelected(121, 130, 59, 100), beat(200, 20, 20);
+    Color selected(85, 104, 42, 200), notSelected(121, 130, 59, 100), beat(200, 20, 20), dev(255, 255, 255, 100);
     srand(time(NULL));
 
     RenderWindow win(VideoMode(960, 600), "Snake Mania");
@@ -52,53 +52,53 @@ int main()
 
     int dir=1;
 
-    Tbg.loadFromFile		("images/bgS.png");
-    TheadRight.loadFromFile ("images/16/headRight.png");
-    TheadLeft.loadFromFile  ("images/16/headLeft.png");
-    TheadUp.loadFromFile    ("images/16/headUp.png");
-    TheadDown.loadFromFile  ("images/16/headDown.png");
-    TbodyHorr.loadFromFile  ("images/16/bodyHorr.png");
-    TbodyVert.loadFromFile  ("images/16/bodyVert.png");
-    TheadRight.loadFromFile ("images/16/headRight.png");
-    TtailUp.loadFromFile    ("images/16/tailUp.png");
-    TtailDown.loadFromFile  ("images/16/tailDown.png");
-    TtailRight.loadFromFile ("images/16/tailRight.png");
-    TtailLeft.loadFromFile  ("images/16/tailLeft.png");
-    TleftUp.loadFromFile    ("images/16/leftUp.png");
-    TleftDown.loadFromFile  ("images/16/leftDown.png");
-    TrightUp.loadFromFile   ("images/16/rightUp.png");
-    TrightDown.loadFromFile ("images/16/rightDown.png");
-    Tfood.loadFromFile      ("images/16/food.png");
-    ThaaUp.loadFromFile     ("images/16/haaUp.png");
-    ThaaDown.loadFromFile   ("images/16/haaDown.png");
-    ThaaLeft.loadFromFile   ("images/16/haaLeft.png");
-    ThaaRight.loadFromFile  ("images/16/haaRight.png");
-    TbonusFood.loadFromFile ("images/bonusFood.png");
+    Tbg.loadFromFile		("resources/bgS");
+    TheadRight.loadFromFile ("resources/headRight");
+    TheadLeft.loadFromFile  ("resources/headLeft");
+    TheadUp.loadFromFile    ("resources/headUp");
+    TheadDown.loadFromFile  ("resources/headDown");
+    TbodyHorr.loadFromFile  ("resources/bodyHorr");
+    TbodyVert.loadFromFile  ("resources/bodyVert");
+    TheadRight.loadFromFile ("resources/headRight");
+    TtailUp.loadFromFile    ("resources/tailUp");
+    TtailDown.loadFromFile  ("resources/tailDown");
+    TtailRight.loadFromFile ("resources/tailRight");
+    TtailLeft.loadFromFile  ("resources/tailLeft");
+    TleftUp.loadFromFile    ("resources/leftUp");
+    TleftDown.loadFromFile  ("resources/leftDown");
+    TrightUp.loadFromFile   ("resources/rightUp");
+    TrightDown.loadFromFile ("resources/rightDown");
+    Tfood.loadFromFile      ("resources/food");
+    ThaaUp.loadFromFile     ("resources/haaUp");
+    ThaaDown.loadFromFile   ("resources/haaDown");
+    ThaaLeft.loadFromFile   ("resources/haaLeft");
+    ThaaRight.loadFromFile  ("resources/haaRight");
+    TbonusFood.loadFromFile ("resources/bonusFood");
 
-    TmenuBG.loadFromFile    ("images/menu/bg.png");
-    TsnakeTree.loadFromFile ("images/menu/snakeTree.png");
-    TsnakeCute.loadFromFile ("images/menu/snakeCute.png");
-    TsnakeBig.loadFromFile  ("images/menu/snakeBig.png");
-    TmenuTitle.loadFromFile ("images/menu/title.png");
+    TmenuBG.loadFromFile    ("resources/bg");
+    TsnakeTree.loadFromFile ("resources/snakeTree");
+    TsnakeCute.loadFromFile ("resources/snakeCute");
+    TsnakeBig.loadFromFile  ("resources/snakeBig");
+    TmenuTitle.loadFromFile ("resources/title");
 
-    ToverBG.loadFromFile    ("images/menu/overBG.png");
-    TbeatBG.loadFromFile    ("images/menu/overBeatBG.png");
-    ThelpBG.loadFromFile    ("images/help.png");
-    ThighBG.loadFromFile    ("images/highBG.png");
+    ToverBG.loadFromFile    ("resources/overBG");
+    TbeatBG.loadFromFile    ("resources/overBeatBG");
+    ThelpBG.loadFromFile    ("resources/help");
+    ThighBG.loadFromFile    ("resources/highBG");
 
-    gothic.loadFromFile     ("fonts/gothic.ttf");
-    grobold.loadFromFile    ("fonts/grobold.ttf");
+    gothic.loadFromFile     ("resources/gothic");
+    grobold.loadFromFile    ("resources/grobold");
 
-    SBeat.loadFromFile      ("audios/eat.ogg");
-    SBdie.loadFromFile      ("audios/die.ogg");
-    SBselect.loadFromFile   ("audios/select.ogg");
-    SBselected.loadFromFile ("audios/selected.ogg");
-    SBbonusAppear.loadFromFile("audios/pop.ogg");
-    SBbonusTime.loadFromFile("audios/bonusTime.ogg");
+    SBeat.loadFromFile      ("resources/eat");
+    SBdie.loadFromFile      ("resources/die");
+    SBselect.loadFromFile   ("resources/select");
+    SBselected.loadFromFile ("resources/selected");
+    SBbonusAppear.loadFromFile("resources/pop");
+    SBbonusTime.loadFromFile("resources/bonusTime");
 
-    menuMusic.openFromFile  ("audios/intro.ogg");
-    gameMusic.openFromFile  ("audios/game.ogg");
-    overMusic.openFromFile  ("audios/over.ogg");
+    menuMusic.openFromFile  ("resources/intro");
+    gameMusic.openFromFile  ("resources/game");
+    overMusic.openFromFile  ("resources/over");
 
     gameMusic.setVolume(45);
     menuMusic.setVolume(60);
@@ -131,7 +131,7 @@ int main()
             win.clear();
             win.draw(menuBG);
             if(menuStart){
-                freopen("GAME_DATA.DAT", "r", stdin);
+                freopen("resources/data", "r", stdin);
                 cin>>highscore;
                 fclose(stdin);
 
@@ -165,6 +165,7 @@ int main()
             Text instructText           ("INSTRUCTIONS", grobold, 40);
             Text highscoreText          ("HIGHSCORE", grobold, 40);
             Text exitText               ("EXIT", grobold, 40);
+            Text developerText			("Developed By KhanShaheb", gothic, 25);
 
             if(startTextPosX>565)       startTextPosX-=40;
             if(instructTextPosX>485)    instructTextPosX-=40;
@@ -175,11 +176,13 @@ int main()
             instructText.setPosition    (instructTextPosX, 220);
             highscoreText.setPosition   (highscoreTextPosX, 300);
             exitText.setPosition        (exitTextPosX, 380);
+            developerText.setPosition	(350, 560);
 
             startText.setFillColor          (notSelected);
             instructText.setFillColor       (notSelected);
             highscoreText.setFillColor      (notSelected);
             exitText.setFillColor           (notSelected);
+            developerText.setFillColor		(dev);
 
             switch(menuSelection%4){
             case 0:
@@ -223,6 +226,7 @@ int main()
             win.draw(instructText);
             win.draw(highscoreText);
             win.draw(exitText);
+            win.draw(developerText);
             win.draw(snakeBig);
             win.draw(snakeTree);
             win.draw(snakeCute);
@@ -235,7 +239,7 @@ int main()
             win.clear();
             if(overStart){
 
-                freopen("GAME_DATA.DAT", "w", stdout);
+                freopen("resources/data", "w", stdout);
                 if(highscore<=score) cout<<score<<endl;
                 else cout<<highscore<<endl;
                 fclose(stdout);
