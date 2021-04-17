@@ -8,7 +8,8 @@
 
 [![Windows Download](https://img.shields.io/badge/Download-Windows-0078d6?style=flat-square&logo=windows)](https://github.com/KhanShaheb34/Snake-Mania/releases/download/1.1/Snake.Mania.v1.1.zip)
 [![Total Downloads](https://img.shields.io/github/downloads/KhanShaheb34/Snake-Mania/total?label=Downloads&style=flat-square)](https://github.com/KhanShaheb34/Snake-Mania/releases/)
-[![language](https://img.shields.io/badge/-Language-00599c?logo=c%2B%2B&style=flat-square)](https://github.com/KhanShaheb34/Snake-Mania/)
+[![language](https://img.shields.io/badge/C%2B%2B-Language-00599c?logo=c%2B%2B&style=flat-square)](https://github.com/KhanShaheb34/Snake-Mania/)
+[![framework](https://img.shields.io/badge/SFML-Framework-8ac652?logo=sfml&style=flat-square)](https://www.sfml-dev.org/)
 
 First project in university, a simple, fun and colorful snake game using C++ and SFML. It's a project under a course of 1st year 2nd Semester of Software Engineering Dept. of SUST.
 The Game is created in simple C++ and SFML.
